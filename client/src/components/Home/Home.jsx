@@ -11,11 +11,6 @@ const Home = () => {
 
     const countries = useSelector(state => state.countries);
 
-    const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(10); //Elementos por página.
-  
-    const totalPages = Math.ceil(countries.length / perPage); // 25 
-
     useEffect(() => {
         dispatch(getCountries());
     },[dispatch])

@@ -15,7 +15,7 @@ function Card({ country }) {
             </Link>
             <img className="flag "src={`${country.flagImg}`} alt="" />
             <h3>Continent: {country.continent}</h3>
-            <h3>Population: {country.population}</h3>
+            
 
         </div>
     )
