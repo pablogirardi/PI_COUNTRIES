@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     population: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   });

@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Sequelize } = require("sequelize");
+const { Sequelize, Op } = require("sequelize");
 const { Country, Activity } = require("../db");
 
 const getCountries = async (req, res) => {
@@ -22,14 +22,13 @@ const getCountries = async (req, res) => {
 };
 const getCountriesById = async (req, res) => {
   const { id } = req.params;
+  console.log(id)
   try {
-    const countryOne = await Country.findByPk(id, {
-      include: Activity,
-    });
+    const countryOne = await Country.findOne({where: {id:{[Op.iLike]: id}}})
     if (!countryOne) {
       return res.status(404).json({ error: "Country not found" });
     }
-    return res.status(200).json(countryOne);
+    return res.status(200).json({success: countryOne});
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -38,9 +37,15 @@ const getCountriesById = async (req, res) => {
 const getCountryByName = async (req, res) => {
   const { name } = req.query;
   console.log(name);
-  return res.status(200).json({
-    name: success,
-  });
+  try {
+    const names = await Country.findOne({where: {name:{
+      [Op.iLike]: name}}})
+    if (!names){
+      return res.status(400).json({error: "Country not found"});
+    } else {return res.status(200).json(names)}
+    
+  } catch (error) {
+    }
 };
 
 module.exports = {
