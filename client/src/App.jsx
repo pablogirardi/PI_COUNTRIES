@@ -1,28 +1,27 @@
 //import Cards
-import { Route,Routes,useLocation } from 'react-router-dom';
-import style from "./App.css";
-import Nav from './components/Nav/Nav';
-import Landing from './components/Landing Page/LandingPage'
-import Home from './components/Home/Home';
-import DetailCountry from './components/Detail/Detail';
-import Form from './components/Form/Form';
+import { Route, Routes, useLocation } from "react-router-dom";
+import style from "./App.module.css";
+import Nav from "./components/Nav/Nav";
+import Landing from "./components/Landing Page/LandingPage";
+import Home from "./components/Home/Home";
+import DetailCountry from "./components/Detail/Detail";
+import Form from "./components/Form/Form";
 
 function App() {
-  const location = useLocation();
+  //const location = useLocation();
 
   return (
     <div className={style.App}>
-      {location.pathname === "/home" ? <Nav></Nav> : null}
-      
+      {/* {location.pathname === "/home" ? <Nav></Nav> : null} */}
+
       <Routes>
-        <Route path="/" element={<Landing/>} />
-        <Route path="home" element={<Home/>} />
-        <Route path="/detail/:id" element={<DetailCountry/>}/>
-        <Route path="/form" element={<Form/>}/>
+        <Route path="/" element={<Landing />} />
+        <Route path="home" element={<Home />} />
+        <Route path="/detail/:id" element={<DetailCountry />} />
+        <Route path="/form" element={<Form />} />
       </Routes>
-     
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -5,8 +5,8 @@ const { Country, Activity } = require("../db");
 const getCountries = async (req, res) => {
   try {
     const countriesFind = await Country.findAll();
-    res.status(200).json(countriesFind);
-    await Country.create();
+    return res.status(200).json({ success: countriesFind });
+    // await Country.create();
     // if (!countriesFind.length)
     //   return res.status(404).json({ country: "Not found" });
     // return res.status(200).json({ success: countriesFind });
@@ -22,30 +22,39 @@ const getCountries = async (req, res) => {
 };
 const getCountriesById = async (req, res) => {
   const { id } = req.params;
-  console.log(id)
+  console.log(id);
   try {
-    const countryOne = await Country.findOne({where: {id:{[Op.iLike]: id}}})
+    const countryOne = await Country.findOne({
+      where: { id: { [Op.iLike]: id } },
+    });
     if (!countryOne) {
       return res.status(404).json({ error: "Country not found" });
     }
-    return res.status(200).json({success: countryOne});
+    return res.status(200).json({ success: countryOne });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
 
 const getCountryByName = async (req, res) => {
-  const { name } = req.query;
-  console.log(name);
+  const arr = [];
   try {
-    const names = await Country.findOne({where: {name:{
-      [Op.iLike]: name}}})
-    if (!names){
-      return res.status(400).json({error: "Country not found"});
-    } else {return res.status(200).json(names)}
-    
-  } catch (error) {
+    const findName = await Country.findOne({
+      where: {
+        name: name.toUpperCase(),
+      },
+      include: Activity,
+    });
+
+    if (findName === null) {
+      throw new Error("No names found");
     }
+
+    arr.push(findName);
+    return arr;
+  } catch (error) {
+    throw new Error("No names found");
+  }
 };
 
 module.exports = {
