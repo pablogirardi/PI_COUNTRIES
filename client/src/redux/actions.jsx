@@ -53,11 +53,10 @@ export const getActivities = () => {
   };
 };
 
-export const detailCountries = (countryID) => {
+export const detailCountries = (id) => {
   return async function (dispatch) {
-    const { data } = await axios(
-      `http://localhost:3001/countries/${countryID}`
-    );
+    const { data } = await axios(`http://localhost:3001/countries/${id}`);
+    console.log(data);
     dispatch({
       type: GET_DETAIL,
       payload: data,

@@ -19,16 +19,10 @@ router.get("/countries", getCountries);
 router.get("/countries/:id", getCountriesById);
 
 //activities
-router.post("/activities", (req, res) => {
-  postActivities(req, res);
-});
+router.post("/activities", postActivities);
 
-router.get("/activities", (req, res) => {
-  getActivities(req, res);
-});
+router.get("/activities", getActivities);
 
-router.get("/activities/:id", (req, res) => {
-  getActivitiesById(req, res);
-});
+router.get("/activities/:id", getActivitiesById);
 
 module.exports = router;

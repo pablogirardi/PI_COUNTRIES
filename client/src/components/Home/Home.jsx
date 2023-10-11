@@ -4,6 +4,7 @@ import Cards from "../Cards/Cards";
 import { getCountries } from "../../redux/actions";
 import style from "./Home.module.css";
 import SearchBar from "../SearchBar/Searchbar";
+import Card from "../Card/Card";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,14 +15,17 @@ const Home = () => {
     dispatch(getCountries());
   }, [dispatch]);
 
-  return (
-    <div className={style.homeContainer}>
-      <SearchBar />
-      <div>
+  if (countries.success) {
+    return (
+      <div className={style.homeContainer}>
+        <SearchBar />
         <Cards countries={countries} />
+        {console.log(countries)}
+        {/* {console.log("home")} */}
       </div>
-    </div>
-  );
+    );
+  }
+  // console.log(countries.success);
 };
 
 export default Home;

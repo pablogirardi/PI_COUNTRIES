@@ -1,24 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
+import style from "./Card.module.css";
 
 function Card({ country }) {
-    const Navigate = useNavigate();
+  // const Navigate = useNavigate();
+  const { id, name, continent, flagImg } = country;
+  //   const handlerToDetail = (id) => {
+  //     Navigate(`/countries/${id}`);
+  //   };
+  return (
+    <Link to={`/countries/${id}`}>
+      <div className={style.card}>
+        <h3>{name}</h3>
 
-
-    const handlerToDetail = id => {
-      Navigate(`/detail/${id}`);
-    }
-    return (
-        <div className={style.card}>
-            <Link to={handlerToDetail(id)}>
-                <h3>{country.name}</h3>
-            </Link>
-            <img className="flag "src={`${country.flagImg}`} alt="" />
-            <h3>Continent: {country.continent}</h3>
-            
-
-        </div>
-    )
+        <img className="flag " src={`${flagImg}`} alt="" />
+        <h3>{continent}</h3>
+      </div>
+    </Link>
+  );
 }
 
-export default Card
+export default Card;
