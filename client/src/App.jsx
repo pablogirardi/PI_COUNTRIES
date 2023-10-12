@@ -6,13 +6,14 @@ import Landing from "./components/Landing Page/LandingPage";
 import Home from "./components/Home/Home";
 import DetailCountry from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
+import { useState } from "react";
 
 function App() {
-  //const location = useLocation();
+  const location = useLocation();
 
   return (
     <div className={style.App}>
-      {/* {location.pathname === "/home" ? <Nav></Nav> : null} */}
+      {location.pathname === "/home" ? <Nav></Nav> : null}
 
       <Routes>
         <Route path="/" element={<Landing />} />

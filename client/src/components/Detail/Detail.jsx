@@ -6,7 +6,7 @@ import { detailCountries } from "../../redux/actions";
 
 const DetailCountry = () => {
   const dispatch = useDispatch();
-  const [countryDetail, setCountry] = useState({});
+  // const [countryDetail, setCountry] = useState({});
   const country = useSelector((state) => state.detailCountries);
   const id = useParams().id;
   console.log(id);
@@ -21,16 +21,21 @@ const DetailCountry = () => {
     // });
     //return setCountry;
   }, [dispatch, id]);
-  console.log(country);
-  return (
-    <div>
-      <img className="detailImg" src={`${countryDetail.flagImg}`} />
-      <h2>{countryDetail?.name}</h2>
-      <h2>{countryDetail?.continents}</h2>
-      <h2>{countryDetail?.capital}</h2>
-      <h2>{countryDetail?.area}</h2>
-      <h2>{countryDetail?.population}</h2>
-    </div>
-  );
+  // console.log(country.success);
+  // useEffect(() => {
+  //   console.log(country);
+  // });
+  if (country) {
+    return (
+      <div>
+        <img className="detailImg" src={`${country.success.flagImg}`} />
+        <h2>{country.success.name}</h2>
+        <h2>{country.success.continents}</h2>
+        <h2>{country.success.capital}</h2>
+        <h2>Area: {country.success.area}</h2>
+        <h2>Population: {country.success.population}</h2>
+      </div>
+    );
+  }
 };
 export default DetailCountry;

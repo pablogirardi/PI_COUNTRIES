@@ -9,14 +9,15 @@ function Card({ country }) {
   //     Navigate(`/countries/${id}`);
   //   };
   return (
-    <Link to={`/countries/${id}`}>
-      <div className={style.card}>
-        <h3>{name}</h3>
-
-        <img className="flag " src={`${flagImg}`} alt="" />
-        <h3>{continent}</h3>
+    <div className={style.card}>
+      <h3>{name}</h3>
+      <div className={style.flagContainer}>
+        <Link to={`/countries/${id}`}>
+          <img className="flag " src={`${flagImg}`} alt="" />
+        </Link>
       </div>
-    </Link>
+      <h3>{continent}</h3>
+    </div>
   );
 }
 

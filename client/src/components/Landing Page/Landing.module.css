@@ -1,0 +1,112 @@
+body {
+  background: gray;
+  font-family: inherit;
+  color: #c2c2c2;
+}
+.ladingPage {
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 24px;
+}
+
+.buttonHome {
+  align-self: center;
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: #fff;
+  overflow: hidden;
+  border: 2px solid #495057;
+  color: #495057;
+}
+.buttonHome:hover {
+  color: #fff;
+}
+.buttonHome:hover:after {
+  height: 100%;
+}
+.buttonHome:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  background: #495057;
+}
+/* .buttonHome {
+  background-color: #141212;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+footer a,
+.buttonHome {
+  text-decoration: none;
+  border: 2px solid #9d9d9d;
+  padding: 15px;
+  color: wheat;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+}
+
+span {
+  position: relative;
+  z-index: 3;
+}
+
+.buttonHome a::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -2px;
+  width: calc(100% + 6px);
+  height: calc(100% - 10px);
+  background-color: #ffffff;
+  transition: all 0.5s ease-in-out;
+  transform: scaleY(1);
+}
+
+.buttonHome a:hover::before {
+  transform: scaleY(0);
+}
+
+.buttonHome a::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
+  background-color: #ffffff;
+  transition: all 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+
+.buttonHome a:hover::after {
+  transform: scaleX(0);
+} */

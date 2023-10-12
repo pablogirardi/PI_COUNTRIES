@@ -1,4 +1,4 @@
-:root {  
+:root {
   --primario: #77008f;
   --secundario: #34a500;
   --gris: #e1e1e1;
@@ -7,9 +7,11 @@
 }
 html {
   box-sizing: border-box;
-  font-size: 62.5%; /* 1 rem = 10px */    
+  font-size: 62.5%; /* 1 rem = 10px */
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 body {

@@ -1,6 +1,7 @@
 import { useState } from "react";
-//import { validation } from "./validations";
+import { validations } from "./validations";
 import style from "./Form.module.css";
+import { Link } from "react-router-dom";
 
 const Form = () => {
   const [form, setForm] = useState({
@@ -27,7 +28,7 @@ const Form = () => {
     });
 
     setErrors(
-      validation({
+      validations({
         ...form,
         [parameter]: value,
       })
@@ -84,6 +85,9 @@ const Form = () => {
             />
           </div>
         </form>
+        <Link to={"/home"}>
+          <button>Go Back</button>
+        </Link>
       </div>
     </div>
   );

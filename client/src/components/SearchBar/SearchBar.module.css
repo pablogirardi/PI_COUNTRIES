@@ -1,0 +1,11 @@
+.searchBar .bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  gap: 5px;
+}

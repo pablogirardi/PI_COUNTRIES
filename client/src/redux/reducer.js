@@ -17,7 +17,7 @@ import {
 const initialState = {
   countries: [],
   countriesCopy: [],
-  countryDetail: [],
+  detailCountries: null,
   continents: [],
   activities: [],
   activityType: [],
@@ -35,13 +35,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case GET_ACTIVITIES:
       return {
         ...state,
-        activities: payload,
+        activities: payload.data,
       };
 
     case GET_DETAIL:
       return {
         ...state,
-        countryDetail: payload,
+        detailCountries: payload,
       };
 
     case SEARCH_NAME:

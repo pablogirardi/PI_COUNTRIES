@@ -1,0 +1,14 @@
+.header {
+  padding: 15px;
+  background-color: rgb(129, 140, 203);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.headerContainer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+}

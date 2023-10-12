@@ -7,7 +7,7 @@ export default function Cards({ countries }) {
   //   return null;
   // }
   const info = countries.success;
-  console.log(info[0].id);
+  // console.log(info[0].id);
   if (info.length > 0) {
     return (
       <div className={style.cards}>

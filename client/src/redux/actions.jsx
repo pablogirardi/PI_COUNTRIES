@@ -29,7 +29,7 @@ export const getCountries = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get("http://localhost:3001/countries");
-      console.log(response.data);
+      //console.log(response.data);
       dispatch({
         type: GET_COUNTRIES,
         payload: response.data,
